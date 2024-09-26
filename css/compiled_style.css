@@ -11,7 +11,7 @@
   --box-shadow-container: var(--background);
 }
 
-:root {
+[data-theme=dark] {
   --background: rgb(18, 18, 18);
   --primary-color: hsl(225, 100%, 75%);
   --primary-font-color: rgb(150, 150, 150);
