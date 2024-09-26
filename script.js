@@ -31,3 +31,52 @@ function checkScroll() {
 
 // EVENT LISTENER FOR SCROLL EVENT 
 window.addEventListener("scroll", checkScroll);
+
+// DARK MODE EXERCISE =======
+const themeSwitcher = document.getElementById("theme-switcher");
+
+// FUNCTION for UPDATE THEME ICON & TEXT
+function updateThemeIcon(isDarkMode) {
+  themeSwitcher.children[0].classList.replace(isDarkMode ? 'fa-sun': 'fa-moon', isDarkMode ? 'fa-moon': 'fa-sun');
+}
+
+// FUNCTION to Determine if dark mode is preferred
+function prefersDarkMode() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+// FUNCTION to Set theme based on the preference 
+function setThemeBasedOnPreference() {
+  const isDarkMode = prefersDarkMode();
+  document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  updateThemeIcon(isDarkMode);
+}
+
+// FUNCTION to switch the themes
+function switchTheme() {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcon(newTheme === 'dark');
+}
+
+// ADDEVENT LISTENERS
+themeSwitcher.addEventListener("click", switchTheme);
+
+// LOCAL STORAGE EXERCISE 
+function initializeTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if(savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme === 'dark');
+  } else {
+    setThemeBasedOnPreference();
+  }
+}
+
+// LISTEN for system theme changes 
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setThemeBasedOnPreference);
+
+// INITIALIZE theme when the script loads
+initializeTheme();
