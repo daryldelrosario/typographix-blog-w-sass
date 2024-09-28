@@ -140,12 +140,11 @@ nav .nav-right a:hover {
 
 a {
   text-decoration: none;
-  color: hsl(211, 100%, 50%);
+  color: var(--primary-color);
   transition: color 0.3s;
 }
-
 a:hover {
-  color: hsl(211, 100%, 35%);
+  filter: brightness(0.9);
 }
 
 /* width */
