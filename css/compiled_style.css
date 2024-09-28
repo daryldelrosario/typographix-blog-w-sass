@@ -89,23 +89,12 @@ nav .nav-right a:hover {
   display: flex;
   align-items: center;
   z-index: 100;
-  position: fixed;
-  top: 15px;
-  right: 25px;
   cursor: pointer;
 }
-
-.theme-switcher span {
-  margin-right: 10px;
-  font-size: 1rem;
-  color: var(--on-background);
-}
-
-.fas {
+.theme-switcher .fas {
   font-size: 30px;
 }
-
-.fas:hover {
+.theme-switcher .fas:hover {
   transform: scale(1.1);
 }
 
