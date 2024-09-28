@@ -23,16 +23,22 @@ nav {
     font-size: 1.5rem;
     font-weight: 700;
   }
-}
 
-.nav-right a {
-  margin-left: 20px;
-  color: hsl(0, 0%, 13%);
-  transition: color 0.3s;
-}
+  .nav-right {
+    display: flex;
+    align-items: center;
 
-.nav-right a:hover {
-  color: hsl(0, 0%, 25%);
+    a {
+      margin-left: 20px;
+      color: var(--secondary-font-color);
+      transition: color 0.3s;
+      text-decoration: none;
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+  }
 }
 
 /* DARK MODE SWITCH */
